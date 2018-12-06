@@ -1,0 +1,38 @@
+{
+  "name": "codeworks-weekly-assessment-5",
+  "version": "1.0.0",
+  "description": "A Codeworks weekly assessment for students",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd client && npm i .",
+    "precommit": "gulp lint && cd client && ng lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeworksbcn/weekly-assessment-5.git"
+  },
+  "author": "Codeworks",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/codeworksbcn/weekly-assessment-5/issues"
+  },
+  "homepage": "https://github.com/codeworksbcn/weekly-assessment-5#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-changelog"
+    }
+  },
+  "devDependencies": {
+    "@ljharb/eslint-config": "13.0.0",
+    "cz-changelog": "1.0.1",
+    "del": "3.0.0",
+    "eslint": "5.8.0",
+    "eslint-plugin-json": "1.2.1",
+    "gulp": "3.9.1",
+    "gulp-eslint": "5.0.0",
+    "gulp-load-plugins": "1.5.0",
+    "gulp-replace": "1.0.0",
+    "husky": "1.1.3"
+  }
+}
