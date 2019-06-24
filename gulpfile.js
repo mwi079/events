@@ -16,29 +16,46 @@ function addDefSrcIgnore (srcArr) {
   ]);
 }
 
-// Lint
-gulp.task('lint', function () {
+// JavaScript and JSON linter
+function lintJs () {
   return gulp.src(addDefSrcIgnore(['**/*.js', '**/*.json']), {dot: true})
     .pipe($.eslint({dotfiles: true}))
     .pipe($.eslint.format())
     .pipe($.eslint.failAfterError());
-});
+}
 
 // Remove solutions from exercises
-gulp.task('remove-solutions', ['lint'], function () {
+function removeSolutions () {
   del.sync('dist');
   return gulp.src(addDefSrcIgnore(['**']), {dot: true})
     .pipe($.replace(/^\s*(\/\/|<!--|\/\*)\s*REMOVE-START[\s\S]*?REMOVE-END\s*(\*\/|-->)?\s*$/gm, ''))
     .pipe(gulp.dest('dist'));
-});
+}
 
 // Prepare for distribution to students
-gulp.task('dist', ['remove-solutions'], function () {
-
+function updateConfigForSlave (done) {
   let npmConfig = require('./package.json');
   npmConfig.scripts.install = 'cd client && npm i .';
-  npmConfig.scripts.precommit = 'gulp lint && cd client && ng lint';
+  npmConfig.scripts.lint = 'cd client && ng lint';
+  npmConfig.husky = { 
+    'hooks': {
+      'pre-commit': 'npm run lint'
+    }
+  };
   npmConfig = JSON.stringify(npmConfig, null, 2).replace(/-master/g, '');
   fs.writeFileSync('dist/package.json', npmConfig);
 
-});
+  done();
+}
+
+// Lint all files
+exports.lint = gulp.parallel(
+  lintJs,
+);
+
+
+// Prepare for distribution to students
+exports.dist = gulp.series(
+  removeSolutions,
+  updateConfigForSlave
+);
