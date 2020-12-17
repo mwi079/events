@@ -42,7 +42,7 @@ const App=() => {
  
   return (
     <div>
-      <List topics={topics}/>
+      <List topics={topics} removeTopic={removeTopic} voteTopic={voteTopic}/>
     </div>
   )
 }

@@ -4,13 +4,13 @@ export function getTopics() {
   return fetchRequest(url);    
 }
 
-export function postTopic() {
+export function postTopic(topic) {
   return fetchRequest(url,{
     method:'POST',
     headers: {
       'Content-Type' : 'application/json'
     },
-    body: JSON.stringify()
+    body: JSON.stringify(topic)
   });
 }
 
@@ -21,18 +21,15 @@ export function deleteTopic (id) {
 }
 
 export function updateTopic (id,direction) {
-  return fetchRequest(`${url}/${id}`,{
+  return fetchRequest(`${url}/${id}/${direction}`,{
     method:'PUT'
   })
 }
 
 
 function fetchRequest(url,options) {
-  return fetch(url)
+  console.log("hello")
+  return fetch(url,options)
     .then(result=>result.status<400? result:Promise.reject(result))
     .then(result=>result.status!==204? result.json(): result)
-    .then(result=> {
-      console.log(result)
-      return result
-    })
 }
