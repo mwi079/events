@@ -1,10 +1,12 @@
 const express=require('express');
 const router=express.Router();
+const {getTopics,postTopic,deleteTopic,voteUp,voteDown}=require('./controller/controller.topic');
 
-router.get('/',()=>{console.log('get')});
-router.post('/',()=>{console.log('post')});
-router.delete('/:id',()=>{console.log('delete')});
-router.put('/:id/up',()=>{console.log('vote up')});
-router.put('/:id/down',()=>{console.log('vote down')});
+
+router.get('/',getTopics);
+router.post('/',postTopic);
+router.delete('/:id',deleteTopic);
+router.put('/:id/up',voteUp);
+router.put('/:id/down',voteDown);
 
 module.exports=router;
