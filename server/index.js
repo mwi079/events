@@ -1,6 +1,6 @@
 const express=require('express');
 const router=require('./router');
-const cors=require('cors')
+const cors=require('cors');
 
 const PORT=3001;
 
