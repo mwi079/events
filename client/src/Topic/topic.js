@@ -6,20 +6,20 @@ export default function Topic(props) {
   return (
    <div className="topic">
      <div className="topicVote">
-       <button className="vote_button" onClick={()=> props.voteTopic(props.topic._id,'up')}>
+       <button  onClick={()=> props.voteTopic(props.topic._id,'up')}>
         <span role="img" aria-label="up">+</span>
        </button>
-       <h3 className="vote_score">{props.topic.score}</h3>
-       <button className="vote_button" onClick={()=> props.voteTopic(props.topic._id,'down')}>
+       <h3> {props.topic.score}</h3>
+       <button onClick={()=> props.voteTopic(props.topic._id,'down')}>
          <span role="img" aria-label="up">-</span>
        </button>
      </div>
      <div className="topic_content">
-       <h3 className="content_title">{props.topic.title}</h3>
+       <h3 >{props.topic.title}</h3>
        <p className="content_date">Created on {moment(props.topic.published_at).format("Do MMM")}</p>
      </div>
-     <div className="topic_delete">
-       <button className="delete_button" onClick={()=> props.removeTopic(props.topic._id)}>
+     <div >
+       <button onClick={()=> props.removeTopic(props.topic._id)}>
          <span role="img" aria-label="trash">X</span>
        </button>
      </div>

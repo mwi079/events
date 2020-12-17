@@ -3,10 +3,11 @@ import Topic from '../Topic/topic'
 
 export default function List(props) {
   return (
-    <div>
-      {props.topics.map((topic)=>{
+      props.topics.length ? props.topics
+      .sort((a,b)=>a.score<b.score? 1:-1)
+      .map((topic)=>{
         return <Topic topic={topic} key={topic._id} removeTopic={props.removeTopic} voteTopic={props.voteTopic}/>
-      })}
-    </div>
+      })
+      : "No topics yet"
   )
 }

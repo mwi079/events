@@ -28,7 +28,6 @@ export function updateTopic (id,direction) {
 
 
 function fetchRequest(url,options) {
-  console.log("hello")
   return fetch(url,options)
     .then(result=>result.status<400? result:Promise.reject(result))
     .then(result=>result.status!==204? result.json(): result)

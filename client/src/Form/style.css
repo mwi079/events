@@ -1,0 +1,22 @@
+.form{
+  width:50vw;
+  min-width: 300px;
+  margin: 50px auto;
+  display:flex;
+  box-shadow: 0 0 10px 1px #333533;
+  border-radius: 5px;
+  overflow:hidden;
+}
+.form_input{
+  flex:3;
+  padding:10px 20px;
+  font-weight:200;
+  font-size: 1.2rem;
+}
+
+.form_submit{
+  flex:1;
+  background:black;
+  color:white;
+  font-weight:800;
+}

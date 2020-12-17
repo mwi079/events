@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { getTopics,postTopic,deleteTopic,updateTopic } from './ApiService';
 import List from './List/list'
+import Form from './Form/form'
 
 import './App.css';
 
@@ -42,6 +43,7 @@ const App=() => {
  
   return (
     <div>
+      <Form createTopic={createTopic}/>
       <List topics={topics} removeTopic={removeTopic} voteTopic={voteTopic}/>
     </div>
   )

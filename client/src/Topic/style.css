@@ -5,6 +5,7 @@
   margin:20px auto;
   padding:10px;
   box-shadow: 0 0 10px 1px #3336;
+  border-radius: 5px;
 }
 .topicVote{
   flex:1;
@@ -13,29 +14,12 @@
   align-items: center;
   flex-direction: column;
 }
-.vote_button{
 
-}
-
-.vote_score{
-
-}
-.vote_button{
-
-}
 .topic_content{
   flex:3;
 }
-.content_title{
 
-}
 .content_date{
   color:#aaa;
   font-size: .8rem;
-}
-.topic_delete{
-
-}
-.delete_button{
-
 }
